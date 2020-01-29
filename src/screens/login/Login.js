@@ -26,9 +26,8 @@ const ImagemLogo = styled.Image`
   resize-mode: contain;
 `;
 
-export const Login = () => {
+export const Login2 = () => {
   const handleOnLogin = () => Actions.users();
-
   return (
     <Body as={View}>
       <Container>
@@ -48,3 +47,43 @@ export const Login = () => {
     </Body>
   );
 };
+
+export class Login extends React.PureComponent {
+  
+  state = {
+    cpf: '',
+    password: '',
+  };
+
+  handleOnLogin = () => Actions.users();
+
+  render() {
+    return (
+      <Body as={View}>
+        <Container>
+          <Content>
+            <ImagemLogo source={logo} />
+            {/* <ImagemLogo source={require('./../../assets/img/logo.png')} /> */}
+
+            <TextLogin>Login</TextLogin>
+
+            <TextInput
+              label="CPF"
+              value={this.state.cpf}
+              onChangeText={value => this.setState({ cpf: value })}
+              keyboardType="numeric"
+            />
+
+            <TextInput
+              label="Senha"
+              value={this.state.password}
+              onChangeText={value => this.setState({ password: value })}
+            />
+
+            <Button onPress={this.handleOnLogin}>LOGAR</Button>
+          </Content>
+        </Container>
+      </Body>
+    );
+  }
+}

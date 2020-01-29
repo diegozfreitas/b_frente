@@ -24,17 +24,11 @@ const Label = styled.Text`
   padding-vertical: 8;
 `;
 
-export const TextInput = ({ label, placeholder, secureTextEntry }) => {
+export const TextInput = ({ label, ...props }) => {
   return (
     <Container>
       <Label>{label}</Label>
-      
-      <ContainerText
-        autoCapitalize="none"
-        autoCorrect={false}
-        placeholder={placeholder}
-        secureTextEntry={secureTextEntry}
-      />
+      <ContainerText autoCapitalize="none" autoCorrect={false} {...props} />
     </Container>
   );
 };
