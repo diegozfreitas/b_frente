@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContainerTextLogin = styled.Text`
-  padding-horizontal: 16;
   margin-bottom: 10;
   font-weight: bold;
   color: #00AEEF;

@@ -5,7 +5,7 @@ const Container = styled.TouchableOpacity`
   padding-vertical: 16;
   background: #00AEEF;
   border-radius: 2;
-  width: 90%;
+  width: 100%;
   align-self: center;
 `;
 
