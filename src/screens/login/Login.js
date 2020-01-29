@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Actions } from 'react-native-router-flux';
 import { View, Text } from 'react-native';
 
-import { Button, Body, CampoInputText, TextLogin } from './../../componentes';
+import { Button, Body, TextInput, TextLogin } from './../../componentes';
 import logo from './../../assets/img/logo.png';
 
 const Container = styled.View`
@@ -13,19 +13,18 @@ const Container = styled.View`
 
 const Content = styled.View`
   padding-vertical: 24;
+  padding-horizontal: 24;
   background: #ddd;
   border-radius: 6;
 `;
 
 const ImagemLogo = styled.Image`
-  width: 75%;
+  width: 100%;
   height: 60;
   margin-bottom: 50;
   align-self: center;
   resize-mode: contain;
 `;
-
-
 
 export const Login = () => {
   const handleOnLogin = () => Actions.users();
@@ -39,11 +38,11 @@ export const Login = () => {
 
           <TextLogin>Login</TextLogin>
 
-          <CampoInputText props_placeholder="CPF"> </CampoInputText>
+          <TextInput label="CPF" />
 
-          <CampoInputText props_placeholder="Sua Senha"> </CampoInputText>
+          <TextInput label="Senha" />
 
-          <Button prop_acao_bt={handleOnLogin}>LOGAR</Button>
+          <Button onPress={handleOnLogin}>LOGAR</Button>
         </Content>
       </Container>
     </Body>

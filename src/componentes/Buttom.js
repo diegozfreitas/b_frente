@@ -15,9 +15,9 @@ const Label = styled.Text`
   text-align: center;
 `;
 
-export const Button = ({children, prop_acao_bt }) => {
+export const Button = ({children, onPress }) => {
   return (
-    <Container onPress={prop_acao_bt}>
+    <Container onPress={onPress}>
       <Label>{children}</Label>
     </Container>
   );
