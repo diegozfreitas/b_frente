@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Actions } from 'react-native-router-flux';
-import { View, Text } from 'react-native';
+import { View, Alert } from 'react-native';
 
 import { Button, Body, TextInput, TextLogin } from './../../componentes';
 import logo from './../../assets/img/logo.png';
@@ -54,8 +54,16 @@ export class Login extends React.PureComponent {
     cpf: '',
     password: '',
   };
+  
+  handleOnLogin = () => {
+    const {cpf, password} = this.state;
 
-  handleOnLogin = () => Actions.users();
+    if (!cpf && !password) return Alert.alert('Erro', 'Todos os campos devem estar preenchidos!');
+
+    //aqui entra a chamada da api...
+
+    Actions.users();
+  }
 
   render() {
     return (

@@ -11,12 +11,13 @@ const Content = styled.View`
 `;
 
 export const Users = () => {
+  
   const handleOnLogin = () => Actions.login();
 
   return (
     <Body>
       <Content>
-        <Button prop_acao_bt={handleOnLogin}>DESLOGAR</Button>
+        <Button onPress={handleOnLogin}>DESLOGAR</Button>
       </Content>
     </Body>
   );
