@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Actions } from 'react-native-router-flux';
 
 import { Button, Body, Espaco } from './../../componentes';
+import service from '../../service';
 
 import { Card } from './components/Card';
 
@@ -18,79 +19,40 @@ const List = styled.FlatList`
   flex: 1;
 `;
 
+export class Users extends React.PureComponent {
+  state = {
+    users: [],
+  };
 
-const data = [
-  {
-    id: 1,
-    name: 'Diego',
-    email: 'ddzadravec@gmail.com',
-  },
-  {
-    id: 2,
-    name: 'Eder',
-    email: 'ederzadravec@gmail.com',
-  },
-  {
-    id: 1,
-    name: 'Diego',
-    email: 'ddzadravec@gmail.com',
-  },
-  {
-    id: 2,
-    name: 'Eder',
-    email: 'ederzadravec@gmail.com',
-  },
-  {
-    id: 1,
-    name: 'Diego',
-    email: 'ddzadravec@gmail.com',
-  },
-  {
-    id: 2,
-    name: 'Eder',
-    email: 'ederzadravec@gmail.com',
-  },{
-    id: 2,
-    name: 'Eder',
-    email: 'ederzadravec@gmail.com',
-  },
-  {
-    id: 1,
-    name: 'Diego',
-    email: 'ddzadravec@gmail.com',
-  },
-  {
-    id: 2,
-    name: 'Eder',
-    email: 'ederzadravec@gmail.com',
-  },
-  {
-    id: 1,
-    name: 'Diego',
-    email: 'ddzadravec@gmail.com',
-  },
-  {
-    id: 2,
-    name: 'Eder',
-    email: 'ederzadravec@gmail.com',
-  },
-];
+  componentWillMount() {
+    this.fetchUsers();
+  }
 
-export const Users = () => {
-  const handleOnLogin = () => Actions.login();
-  const handleOnCadastrar = () => Actions.newUser();
+  fetchUsers = () => {
+    service.get('/user/list').then(data => {
+      this.setState({ users: data.data });
+    })
+  };
 
-  return (
-    <Body>
-      <Content>
-        <List data={data} renderItem={Card} />
-      </Content>
+  handleOnLogin = () => Actions.login();
 
-      <Footer>
-        <Button onPress={handleOnLogin}>DESLOGAR</Button>
-        <Espaco></Espaco>
-        <Button onPress={handleOnCadastrar}>CADASTRAR</Button>
-      </Footer>
-    </Body>
-  );
-};
+  handleOnCadastrar = () => Actions.newUser();
+
+  render() {
+    return (
+      <Body>
+        <Content>
+          <List data={this.state.users} renderItem={Card} />
+        </Content>
+
+        <Footer>
+          <Button onPress={this.handleOnLogin}>DESLOGAR</Button>
+
+          <Espaco></Espaco>
+
+          <Button onPress={this.handleOnCadastrar}>CADASTRAR</Button>
+        </Footer>
+      </Body>
+    );
+  }
+}
