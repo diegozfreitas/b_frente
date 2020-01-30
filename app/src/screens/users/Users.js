@@ -28,10 +28,13 @@ export class Users extends React.PureComponent {
     this.fetchUsers();
   }
 
-  fetchUsers = () => {
-    service.get('/user/list').then(data => {
-      this.setState({ users: data.data });
-    })
+  fetchUsers = async () => {
+    const data = await service.get('/user/list')
+    this.setState({ users: data.data });
+
+    // service.get('/user/list').then(data => {
+    //   this.setState({ users: data.data });
+    // })
   };
 
   handleOnLogin = () => Actions.login();
