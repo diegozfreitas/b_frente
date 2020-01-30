@@ -27,6 +27,7 @@ const ImagemLogo = styled.Image`
 
 export const Login2 = () => {
   const handleOnLogin = () => Actions.users();
+
   return (
     <Body as={View}>
       <Container>
@@ -48,12 +49,12 @@ export const Login2 = () => {
 };
 
 export class Login extends React.PureComponent {
-  
+
   state = {
     cpf: '',
     password: '',
   };
-  
+
   handleOnLogin = () => {
     const {cpf, password} = this.state;
 
@@ -61,7 +62,7 @@ export class Login extends React.PureComponent {
 
     //aqui entra a chamada da api...
 
-    Actions.newuser();
+    Actions.users();
   }
 
   render() {

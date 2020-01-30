@@ -11,9 +11,9 @@ const Content = styled.View`
 `;
 
 export const Users = () => {
-  
+
   const handleOnLogin = () => Actions.login();
-  const handleOnCadastrar = () => Actions.newuser();
+  const handleOnCadastrar = () => Actions.newUser();
 
   return (
     <Body>
