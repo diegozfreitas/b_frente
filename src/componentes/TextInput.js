@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.View`
   font-size: 14;
-  padding-vertical: 8;
+  padding-vertical: 2;
 
   padding-horizontal: 8;
   background: #f2f2f2;
@@ -21,7 +21,7 @@ const ContainerText = styled.TextInput`
 const Label = styled.Text`
   border-bottom-color: #ddd;
   font-size: 12;
-  padding-vertical: 8;
+  padding-vertical: 0;
 `;
 
 export const TextInput = ({ label, ...props }) => {

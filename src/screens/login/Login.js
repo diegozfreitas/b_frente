@@ -10,7 +10,6 @@ const Container = styled.View`
   justify-content: center;
   flex: 1;
 `;
-
 const Content = styled.View`
   padding-vertical: 24;
   padding-horizontal: 24;
@@ -62,7 +61,7 @@ export class Login extends React.PureComponent {
 
     //aqui entra a chamada da api...
 
-    Actions.users();
+    Actions.newuser();
   }
 
   render() {

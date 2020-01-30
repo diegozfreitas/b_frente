@@ -9,9 +9,10 @@ export const Routes = () =>{
         <SafeAreaView style={{flex:1}}>
             <Router>
                 <Stack key="root" hideNavBar>
-                    <Scene key="login" initial component={screens.Login} type="reset"/>
-                   {/* chave para chamar       nome do compo que abre     no cache */}
-                    <Scene key="users"  component={screens.Users} type="reset"/>
+                    <Scene key="login"  initial component={screens.Login} type="reset"/>
+                   {/* chave para chamar       nome do componente que abre     no cache */}
+                    <Scene key="users"   component={screens.Users} type="reset"/>
+                    <Scene key="newuser"  component={screens.NewUser} type="reset"/>
                 </Stack >
             </Router>
         </SafeAreaView>
